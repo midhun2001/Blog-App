@@ -15,6 +15,10 @@
           {% if user.is_authenticated %}
 
           <li class="nav-item">
+            <a class="nav-link active fw-medium" aria-current="page" href="{% url 'my_blog' %}">My Blogs</a>
+          </li>
+
+          <li class="nav-item">
             <a class="nav-link active fw-medium" aria-current="page" href="{% url 'signout' %}">Logout</a>
           </li>
 

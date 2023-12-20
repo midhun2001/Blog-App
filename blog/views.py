@@ -7,7 +7,7 @@ from .forms import PostForm, SignUpForm
 
 def post_list(request):
     posts = Post.objects.all().order_by('-id')
-    return render(request, 'blog/home.html', {'posts': posts})
+    return render(request, 'blog/home.html', {'posts': posts, 'title': 'Recent Blogs'})
 
 
 def add_post(request):
@@ -85,3 +85,8 @@ def signout(request):
     logout(request)
     messages.success(request, "Logged Out Successfully!")
     return redirect('home')
+
+
+def my_blog(request):
+    posts = Post.objects.filter(creator=request.user.id).order_by('-id')
+    return render(request, 'blog/home.html', {'posts': posts, 'title': 'My Blogs'})
