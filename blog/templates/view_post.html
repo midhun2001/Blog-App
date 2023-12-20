@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %} Blog | {{ post.title }} {% endblock %}
+
+{% block content %}
+
+<div class="view-post-header">
+    <span class="fs-5 fw-medium">
+        <h1>{{ post.title }}</h1>
+        <small class="text-body-secondary">{{ post.creator }} | {{ post.created_at }}</small>
+    </span>
+    <span class="view-post-btn">
+        <a class="btn btn-success" href="{% url 'update_post' post.pk %}">Edit</a>
+        <a class="btn btn-danger" href="{% url 'delete_post' post.pk %}">Delete</a>
+    </span>
+</div>
+
+
+<hr>
+<p>{{ post.content }}</p>
+
+{% endblock %}
