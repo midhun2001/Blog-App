@@ -8,10 +8,16 @@
         <h1>{{ post.title }}</h1>
         <small class="text-body-secondary">{{ post.creator }} | {{ post.created_at }}</small>
     </span>
+    {% if user.is_authenticated %}
+    {% if user.id == post.creator.id %}
+
     <span class="view-post-btn">
         <a class="btn btn-success" href="{% url 'update_post' post.pk %}">Edit</a>
         <a class="btn btn-danger" href="{% url 'delete_post' post.pk %}">Delete</a>
     </span>
+
+    {% endif %}
+    {% endif %}
 </div>
 
 

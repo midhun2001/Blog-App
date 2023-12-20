@@ -11,12 +11,22 @@
           <li class="nav-item">
             <a class="nav-link active fw-medium" aria-current="page" href="{% url 'home' %}">Home</a>
           </li>
+
+          {% if user.is_authenticated %}
+
           <li class="nav-item">
-            <a class="nav-link active fw-medium" aria-current="page" href="{% url 'home' %}">Login</a>
+            <a class="nav-link active fw-medium" aria-current="page" href="{% url 'signout' %}">Logout</a>
+          </li>
+
+          {% else %}
+
+          <li class="nav-item">
+            <a class="nav-link active fw-medium" aria-current="page" href="{% url 'signin' %}">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active fw-medium" aria-current="page" href="{% url 'home' %}">Create Account</a>
+            <a class="nav-link active fw-medium" aria-current="page" href="{% url 'signup' %}">Create Account</a>
           </li>
+          {% endif %}
         </ul>
       </div>
     </div>

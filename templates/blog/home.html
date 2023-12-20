@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="feed-title-section d-flex justify-content-between align-items-center">
-    <div class="h5 fw-medium">Recent Blogs</div>
+    <div class="h5 fw-medium">Recent Blogs  {{ user_name }}</div>
     <div class="add-post-btn ml-auto">
         <a class="btn btn-success" href="{% url 'add_post' %}">Add Post</a>
     </div>
